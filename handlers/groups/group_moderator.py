@@ -60,7 +60,7 @@ async def read_only_mode(message: types.Message):
     await message.answer(f"Foydalanuvchi {message.reply_to_message.from_user.full_name} {time} minut yozish huquqidan mahrum qilindi.\n"
                          f"Sabab: \n<b>{comment}</b>")
 
-    service_message = await message.reply("Xabar 5 sekunddan so'ng o'chib ketadi.")
+    service_message = await message.reply("Xabar 3 sekunddan so'ng o'chib ketadi.")
     # 5 sekun kutib xabarlarni o'chirib tashlaymiz
     await asyncio.sleep(5)
     await message.delete()
@@ -83,7 +83,7 @@ async def undo_read_only_mode(message: types.Message):
         can_change_info=False,
         can_pin_messages=False,
     )
-    service_message = await message.reply("Xabar 5 sekunddan so'ng o'chib ketadi.")
+    service_message = await message.reply("Xabar 3 sekunddan so'ng o'chib ketadi.")
 
     await asyncio.sleep(5)
     await message.chat.restrict(user_id=member_id, permissions=user_allowed, until_date=0)
@@ -102,7 +102,7 @@ async def ban_user(message: types.Message):
     await message.chat.kick(user_id=member_id)
 
     await message.answer(f"Foydalanuvchi {message.reply_to_message.from_user.full_name} guruhdan haydaldi")
-    service_message = await message.reply("Xabar 5 sekunddan so'ng o'chib ketadi.")
+    service_message = await message.reply("Xabar 3 sekunddan so'ng o'chib ketadi.")
 
     await asyncio.sleep(5)
     await message.delete()
